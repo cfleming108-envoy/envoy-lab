@@ -49,7 +49,7 @@
 
     header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start; /* logo only, left-aligned */
       align-items: center;
       margin-bottom: 22px;
       gap: 16px;
@@ -58,33 +58,13 @@
     .logo-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: #ffffff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      /* no background pill, no extra padding */
     }
 
     .logo-img {
-      height: 40px;
+      height: 44px;   /* tweak as needed */
       width: auto;
       display: block;
-    }
-
-    .logo-text {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #241D73;
-      white-space: nowrap;
-    }
-
-    .tagline {
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      text-align: right;
     }
 
     .content {
@@ -97,9 +77,6 @@
     @media (max-width: 860px) {
       .content {
         grid-template-columns: minmax(0, 1fr);
-      }
-      .tagline {
-        text-align: left;
       }
     }
 
@@ -295,19 +272,6 @@
       display: block;
     }
 
-    .image-label {
-      position: absolute;
-      left: 8px;
-      bottom: 8px;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(9, 6, 31, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.26);
-      font-size: 0.68rem;
-      color: var(--muted);
-      backdrop-filter: blur(6px);
-    }
-
     footer {
       margin-top: 18px;
       font-size: 0.7rem;
@@ -334,9 +298,7 @@
       <div class="logo-wrap">
         <!-- Replace envoy-logo.png with your actual logo filename if different -->
         <img src="envoy-logo.png" alt="EnVoy-LAB logo" class="logo-img" />
-        <div class="logo-text">Isotope Production Solutions</div>
       </div>
-      <div class="tagline">Pb-212 · Ac-225 · Cyclotron-Based Supply</div>
     </header>
 
     <div class="content">
@@ -394,9 +356,8 @@
 
       <aside class="hero-visual">
         <div class="image-main">
-          <!-- Replace ac-pb.png with your combined image filename -->
-          <img src="ac-pb.png" alt="Radioisotopes Pb-212 and Ac-225 visualization" />
-          <div class="image-label">Radioisotopes lead-212 (Pb-212) and actinium-225 (Ac-225)</div>
+          <!-- Replace ac-pb.png with your combined image filename if needed -->
+          <img src="ac-pb.png" alt="Radioisotopes Pb-212 and Ac-225" />
         </div>
       </aside>
     </div>

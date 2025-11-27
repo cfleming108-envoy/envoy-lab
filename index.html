@@ -14,6 +14,7 @@
       --text: #ffffff;
       --muted: #c3c7f4;
       --border: rgba(255, 255, 255, 0.08);
+      --top-band: #f7f5ff;  /* light band behind logo */
     }
 
     * {
@@ -44,25 +45,28 @@
       box-shadow:
         0 24px 48px rgba(0, 0, 0, 0.65),
         0 0 0 1px rgba(255, 255, 255, 0.02);
-      padding: 26px 24px 20px;
+      padding: 0 24px 20px; /* top padding handled by header band */
     }
 
     header {
       display: flex;
-      justify-content: flex-start; /* logo only, left-aligned */
+      justify-content: flex-start;
       align-items: center;
-      margin-bottom: 22px;
       gap: 16px;
+      background: var(--top-band);
+      margin: 0 -24px 24px; /* extend band edge-to-edge inside card */
+      padding: 14px 24px 12px;
+      border-radius: 24px 24px 0 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .logo-wrap {
       display: flex;
       align-items: center;
-      /* no background pill, no extra padding */
     }
 
     .logo-img {
-      height: 44px;   /* tweak as needed */
+      height: 44px;   /* adjust if you want it smaller/larger */
       width: auto;
       display: block;
     }
@@ -78,26 +82,6 @@
       .content {
         grid-template-columns: minmax(0, 1fr);
       }
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 4px 11px;
-      border-radius: 999px;
-      border: 1px solid var(--accent-soft);
-      background: rgba(17, 14, 56, 0.9);
-      color: var(--muted);
-      font-size: 0.8rem;
-      margin-bottom: 10px;
-    }
-
-    .hero-badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: radial-gradient(circle, var(--accent) 0, #FFB800 60%);
     }
 
     .hero-text h1 {
@@ -119,17 +103,6 @@
       max-width: 34rem;
       line-height: 1.5;
       margin-bottom: 18px;
-    }
-
-    .hero-note {
-      font-size: 0.83rem;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .hero-note strong {
-      color: var(--accent);
-      font-weight: 500;
     }
 
     .form-card {
@@ -303,11 +276,6 @@
 
     <div class="content">
       <section class="hero-text">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          UC Berkeley–affiliated spin-out
-        </div>
-
         <h1>
           Enabling <span class="hero-highlight">reliable access</span> to next-generation medical radioisotopes.
         </h1>
@@ -318,14 +286,10 @@
           and healthcare systems secure high-quality alpha-emitting isotopes.
         </p>
 
-        <p class="hero-note">
-          Interested in partnering, piloting, or learning more? <strong>Leave your email and we’ll be in touch.</strong>
-        </p>
-
         <div class="form-card">
           <div class="form-title">Stay in touch</div>
           <div class="form-subtitle">
-            Share your email and we’ll follow up with more information about EnVoy-LAB and upcoming opportunities.
+            Interested in partnering, piloting, or learning more? Leave your email and we’ll be in touch.
           </div>
 
           <!-- TODO: replace the action URL below with your actual Formspree (or other) endpoint -->

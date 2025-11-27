@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EnVoy-LAB | Isotope Production Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #241D73;        /* deep purple-blue */
+      --bg-dark: #15113f;
+      --accent: #FFDE59;    /* yellow */
+      --accent-soft: rgba(255, 222, 89, 0.12);
+      --accent-alt: #515DB3;/* medium blue */
+      --text: #ffffff;
+      --muted: #c3c7f4;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background:
+        radial-gradient(circle at top, #515DB3 0, #241D73 45%, #0a0724 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .page {
+      max-width: 1040px;
+      width: 100%;
+      background: radial-gradient(circle at top left, #2f277f 0, #15113f 40%, #09061c 100%);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow:
+        0 24px 48px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+      padding: 26px 24px 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      gap: 16px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    .logo-text {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      text-align: right;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .tagline {
+        text-align: left;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 4px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(17, 14, 56, 0.9);
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent) 0, #FFB800 60%);
+    }
+
+    .hero-text h1 {
+      font-size: clamp(1.9rem, 4vw, 2.5rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, var(--accent), #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 0.97rem;
+      max-width: 34rem;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .hero-note {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .hero-note strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .form-card {
+      background: radial-gradient(circle at top left, rgba(255, 222, 89, 0.1) 0, #15113f 55%);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 16px 16px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 222, 89, 0.26), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(81, 93, 179, 0.18), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .form-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .form-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    label {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    @media (max-width: 520px) {
+      .input-row {
+        flex-direction: column;
+      }
+    }
+
+    input[type="email"] {
+      flex: 1;
+      padding: 10px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(11, 9, 49, 0.95);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    input[type="email"]::placeholder {
+      color: #8e91c8;
+    }
+
+    input[type="email"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(255, 222, 89, 0.6);
+      background: #09061f;
+    }
+
+    button[type="submit"] {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: linear-gradient(120deg, var(--accent), #FFEF9B);
+      color: #201a49;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.6);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+    }
+
+    .button-icon {
+      font-size: 0.9rem;
+    }
+
+    .form-footnote {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .hero-visual {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      padding: 10px;
+      background:
+        radial-gradient(circle at top, rgba(255, 222, 89, 0.16), transparent 55%),
+        radial-gradient(circle at bottom, rgba(81, 93, 179, 0.35), transparent 55%),
+        #09061f;
+    }
+
+    .hero-visual-grid {
+      display: grid;
+      grid-template-rows: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 10px;
+      height: 100%;
+    }
+
+    .image-main,
+    .image-row {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #09061f;
+    }
+
+    .image-main img,
+    .image-row img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .image-label {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(9, 6, 31, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      font-size: 0.68rem;
+      color: var(--muted);
+      backdrop-filter: blur(6px);
+    }
+
+    footer {
+      margin-top: 18px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-wrap">
+        <!-- Replace envoy-logo.png with your actual logo filename if different -->
+        <img src="envoy-logo.png" alt="EnVoy-LAB logo" class="logo-img" />
+        <div class="logo-text">Isotope Production Solutions</div>
+      </div>
+      <div class="tagline">Pb-212 · Ac-225 · Cyclotron-Based Supply</div>
+    </header>
+
+    <div class="content">
+      <section class="hero-text">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          UC Berkeley–affiliated spin-out
+        </div>
+
+        <h1>
+          Enabling <span class="hero-highlight">reliable access</span> to next-generation medical radioisotopes.
+        </h1>
+
+        <p class="hero-subtitle">
+          EnVoy-LAB is developing distributed, cyclotron-based production solutions for
+          lead-212 (Pb-212) and actinium-225 (Ac-225), helping CDMOs, radiopharmacies,
+          and healthcare systems secure high-quality alpha-emitting isotopes.
+        </p>
+
+        <p class="hero-note">
+          Interested in partnering, piloting, or learning more? <strong>Leave your email and we’ll be in touch.</strong>
+        </p>
+
+        <div class="form-card">
+          <div class="form-title">Stay in touch</div>
+          <div class="form-subtitle">
+            Share your email and we’ll follow up with more information about EnVoy-LAB and upcoming opportunities.
+          </div>
+
+          <!-- TODO: replace the action URL below with your actual Formspree (or other) endpoint -->
+          <form
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+          >
+            <label for="email">Email address</label>
+            <div class="input-row">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@organization.com"
+                required
+              />
+              <button type="submit">
+                Submit
+                <span class="button-icon">→</span>
+              </button>
+            </div>
+            <p class="form-footnote">
+              We’ll only use your email to contact you about EnVoy-LAB.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <aside class="hero-visual">
+        <div class="hero-visual-grid">
+          <div class="image-main">
+            <!-- Main hero image: Ac-225 -->
+            <img src="ac-225.png" alt="Radioisotope actinium-225 visualization" />
+            <div class="image-label">Radioisotope actinium-225 (Ac-225)</div>
+          </div>
+          <div class="image-row">
+            <div class="image-main">
+              <!-- Pb-212 image -->
+              <img src="pb-212.png" alt="Radioisotope lead-212 visualization" />
+              <div class="image-label">Radioisotope lead-212 (Pb-212)</div>
+            </div>
+            <div class="image-main">
+              <!-- Logo tile for balance -->
+              <img src="envoy-logo.png" alt="EnVoy-LAB logo" style="object-fit: contain; background:#ffffff;" />
+              <div class="image-label">EnVoy-LAB · Isotope Production Solutions</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <span>© <span id="year"></span> EnVoy-LAB. All rights reserved.</span>
+      <span>Berkeley, California</span>
+    </footer>
+  </div>
+
+  <script>
+    // Keep the footer year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

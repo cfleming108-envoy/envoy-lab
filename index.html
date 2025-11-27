@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #241D73;        /* deep purple-blue */
-      --bg-dark: #15113f;
+      --bg: #241D73;        /* brand purple-blue */
+      --bg-dark: #050816;
       --accent: #FFDE59;    /* yellow */
       --accent-soft: rgba(255, 222, 89, 0.12);
       --accent-alt: #515DB3;/* medium blue */
@@ -26,7 +26,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
       background:
-        radial-gradient(circle at top, #515DB3 0, #241D73 45%, #0a0724 100%);
+        radial-gradient(circle at top, #515DB3 0, #050816 45%, #020308 100%);
       color: var(--text);
       min-height: 100vh;
       display: flex;
@@ -58,20 +58,25 @@
     .logo-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      background: #ffffff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
 
     .logo-img {
-      height: 44px;
+      height: 40px;
       width: auto;
       display: block;
     }
 
     .logo-text {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: var(--muted);
+      color: #241D73;
+      white-space: nowrap;
     }
 
     .tagline {
@@ -275,33 +280,19 @@
         #09061f;
     }
 
-    .hero-visual-grid {
-      display: grid;
-      grid-template-rows: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 10px;
-      height: 100%;
-    }
-
-    .image-main,
-    .image-row {
+    .image-main {
       position: relative;
       overflow: hidden;
       border-radius: 14px;
       background: #09061f;
+      min-height: 220px;
     }
 
-    .image-main img,
-    .image-row img {
+    .image-main img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    .image-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
     }
 
     .image-label {
@@ -402,24 +393,10 @@
       </section>
 
       <aside class="hero-visual">
-        <div class="hero-visual-grid">
-          <div class="image-main">
-            <!-- Main hero image: Ac-225 -->
-            <img src="ac-225.png" alt="Radioisotope actinium-225 visualization" />
-            <div class="image-label">Radioisotope actinium-225 (Ac-225)</div>
-          </div>
-          <div class="image-row">
-            <div class="image-main">
-              <!-- Pb-212 image -->
-              <img src="pb-212.png" alt="Radioisotope lead-212 visualization" />
-              <div class="image-label">Radioisotope lead-212 (Pb-212)</div>
-            </div>
-            <div class="image-main">
-              <!-- Logo tile for balance -->
-              <img src="envoy-logo.png" alt="EnVoy-LAB logo" style="object-fit: contain; background:#ffffff;" />
-              <div class="image-label">EnVoy-LAB · Isotope Production Solutions</div>
-            </div>
-          </div>
+        <div class="image-main">
+          <!-- Replace ac-pb.png with your combined image filename -->
+          <img src="ac-pb.png" alt="Radioisotopes Pb-212 and Ac-225 visualization" />
+          <div class="image-label">Radioisotopes lead-212 (Pb-212) and actinium-225 (Ac-225)</div>
         </div>
       </aside>
     </div>
